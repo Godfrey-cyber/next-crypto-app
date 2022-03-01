@@ -28,7 +28,7 @@ const Index = () => {
     });
  
 
- }, [])
+ }, [options])
  
   return (
     <div>hello</div>

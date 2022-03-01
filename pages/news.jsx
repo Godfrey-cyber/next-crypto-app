@@ -36,13 +36,13 @@ const News = ({ simplified, setIsSimplified }) => {
                 onChange={(value) => setNewsCategory(value)}
                 filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                 <option className="bg-yellow-50 text-sm hover:bg-teal-300" value="Cryptocurency">Cryptocurrency</option>
-                {data?.data?.coins?.map((currency) => <option value={currency.name}>{currency.name}</option>)}
+                {data?.data?.coins?.map((currency) => <option key={currency.uuid} value={currency.name}>{currency.name}</option>)}
             </select>
             </div>
          )}
             <div className="grid grid-cols-12 gap-4 my-6 w-full">
                 {cryptoNews.value.map((news, i) => (
-                <Link passHref href={news.url} target="_blank" rel="noreferrer">
+                <Link key={news.name} passHref href={news.url} target="_blank" rel="noreferrer">
                     <div className="flex-col lg:col-span-4 md:col-span-6 col-span-12 bg-white hover:cursor-pointer hover:shadow-md shadow-sm shadow-gray-300 rounded-sm p-5" key={i}>
                         <div className="news-card">
                             <div className="grid grid-cols-12">

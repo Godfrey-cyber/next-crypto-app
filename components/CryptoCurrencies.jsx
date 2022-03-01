@@ -21,7 +21,7 @@ const CryptoCurrencies = ({ simplified, setIsSimplified }) => {
     const filteredData = cryptosList?.data?.coins.filter((item) => item.name.toLowerCase().includes(searchTerm));
 
     setCryptos(filteredData);
-  }, [cryptosList, searchTerm]);
+  }, [cryptosList, searchTerm, cryptos]);
 
   if (isFetching) return <Loader />;
   return (
@@ -29,7 +29,7 @@ const CryptoCurrencies = ({ simplified, setIsSimplified }) => {
     <div className="flex flex-col h-full w-full">
       {!simplified && (
         <div className="w-1/4  h-8 ">
-          <input className="w-full" type="text" className="h-10 bg-white border border-gray-500 p-2 rounded-sm"
+          <input type="text" className="w-full border border-gray-500 p-2 rounded-sm"
             placeholder="Searcch a coin"
             onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
@@ -39,13 +39,12 @@ const CryptoCurrencies = ({ simplified, setIsSimplified }) => {
         {cryptos?.map((currency) => {
           let color = (currency.color) === null ? '#d51414' : currency.color
           return (
-            <div key={currency.uuid} onClick={() => router.push(`/crypto/${currency.uuid}`)} className="flex-col lg:col-span-2 md:col-span-4 col-span-12 bg-white shadow-sm shadow-gray-300 rounded-sm p-4 hover:cursor-pointer"
-              key={currency.uuid}>
+            <div key={currency.uuid} onClick={() => router.push(`/crypto/${currency.uuid}`)} className="flex-col lg:col-span-2 md:col-span-4 col-span-12 bg-white shadow-sm shadow-gray-300 rounded-sm p-4 hover:cursor-pointer">
               {/* Note: Change currency.id to currency.uuid  */}
               <div className="flex flex-col space-y-2">
                 <div className="flex space-x-4 items-center justify-between">
                     <p className="text-[${color}] font-normal text-sm">{`${currency.rank}. ${currency.name}`}</p>
-                    <span className="h-8 relative w-8"><Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} /></span>
+                    <span className="h-8 relative w-8"><Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} alt={logoImg} /></span>
                 </div>
                 <p className="text-gray-600 font-normal">Price: {millify(currency.price)}</p>
                 <p className="text-gray-500 text-sm font-semibold">Market Cap: {millify(currency.marketCap)}</p>

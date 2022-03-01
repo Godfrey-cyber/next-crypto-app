@@ -21,7 +21,7 @@ const Cryptos = ({ simplified, setIsSimplified }) => {
     const filteredData = cryptosList?.data?.coins.filter((item) => item.name.toLowerCase().includes(searchTerm));
 
     setCryptos(filteredData);
-  }, [cryptosList, searchTerm]);
+  }, [cryptosList, searchTerm, cryptos]);
 
   if (isFetching) return <Loader />;
   return (
@@ -45,13 +45,12 @@ const Cryptos = ({ simplified, setIsSimplified }) => {
             {cryptos?.map((currency) => {
             let color = (currency.color) === null ? '#d51414' : currency.color
             return (
-                <div key={currency.uuid} onClick={() => router.push(`/crypto/${currency.uuid}`)} className="flex-col lg:col-span-2 md:col-span-4 col-span-12 bg-white shadow-sm shadow-gray-300 rounded-sm p-4 hover:cursor-pointer"
-                    key={currency.uuid}>
+                <div key={currency.uuid} onClick={() => router.push(`/crypto/${currency.uuid}`)} className="flex-col lg:col-span-2 md:col-span-4 col-span-12 bg-white shadow-sm shadow-gray-300 rounded-sm p-4 hover:cursor-pointer">
                 {/* Note: Change currency.id to currency.uuid  */}
                     <div className="flex flex-col space-y-2">
                         <p className={`text-[${color}] font-normal`}>{`${currency.rank}. ${currency.name}`}</p>
                         <span className="h-10 relative w-10">
-                        <Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} /></span>
+                        <Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} alt="logoimage"/></span>
                         <p className="text-gray-600 font-normal">Price: {millify(currency.price)}</p>
                         <p className="text-gray-500 text-sm font-semibold">Market Cap: {millify(currency.marketCap)}</p>
                         <span className="flex space-x-1 items-center">

@@ -22,7 +22,7 @@ const Exchanges = () => {
         <p className="text-md text-gray-800 font-serif font-semibold">Markets</p>
         <p className="text-md text-gray-800 font-serif font-semibold">Change</p>
       </div>
-      <Row>
+      <div>
         {/* {exchangesList.map((exchange) => (
           <Col span={24}>
             <Collapse>
@@ -47,7 +47,7 @@ const Exchanges = () => {
             </Collapse>
           </Col>
         ))} */}
-      </Row>
+      </div>
       </>
       </div>
   );
