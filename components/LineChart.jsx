@@ -55,4 +55,4 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
 };
 
 export default LineChart;
-// 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
+// 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

@@ -41,7 +41,7 @@ const HomePage = () => {
           </span>
       </div>
       <div className="flex items-center justify-between my-12">
-        <h3 className="text-2xl text-blue-500 font-semibold mx-auto my-4">Top 10 Cryptos In The World</h3>
+        <h3 className="text-2xl text-blue-500 font-semibold mx-auto my-4">Top {simplified ? 10 : 100} Cryptos In The World</h3>
         <h3 onClick={() => setIsSimplified(prevState => !prevState)} className="text-2xl text-blue-500 font-semibold hover:cursor-pointer">Show more</h3>
       </div>
       <Cryptocurrencies simplified={simplified} />
