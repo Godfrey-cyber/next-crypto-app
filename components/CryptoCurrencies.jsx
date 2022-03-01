@@ -28,9 +28,9 @@ const CryptoCurrencies = ({ simplified, setIsSimplified }) => {
     
     <div className="flex flex-col h-full w-full">
       {!simplified && (
-        <div className="w-1/4  h-8 ">
-          <input type="text" className="w-full border border-gray-500 p-2 rounded-sm"
-            placeholder="Searcch a coin"
+        <div className="w-1/4 h-8 my-6">
+          <input type="text" className="w-full border border-gray-300 p-2 rounded-sm focus:outline-none"
+            placeholder="Search a coin"
             onChange={(e) => setSearchTerm(e.target.value.toLowerCase())}
           />
         </div>
@@ -44,7 +44,7 @@ const CryptoCurrencies = ({ simplified, setIsSimplified }) => {
               <div className="flex flex-col space-y-2">
                 <div className="flex space-x-4 items-center justify-between">
                     <p className="text-[${color}] font-normal text-sm">{`${currency.rank}. ${currency.name}`}</p>
-                    <span className="h-8 relative w-8"><Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} alt={logoImg} /></span>
+                    <span className="h-8 relative w-8"><Image className="" objectfit="contain" layout="fill" src={currency.iconUrl} alt="logoImg" /></span>
                 </div>
                 <p className="text-gray-600 font-normal">Price: {millify(currency.price)}</p>
                 <p className="text-gray-500 text-sm font-semibold">Market Cap: {millify(currency.marketCap)}</p>

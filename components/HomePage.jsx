@@ -20,8 +20,8 @@ const HomePage = () => {
           <p className="text-teal-400 text-md font-normal text-xl font-serif" >&nbsp; {globalStats.total}  </p>
           </span>
         <span className="flex items-center col-span-6">
-            <p className="text-gray-800 text-md" >Total Exchanges {millify(globalStats.totalExchanges)}</p>
-            <p className="text-teal-400 font-normal text-xl font-serif text-md">&nbsp;  </p>
+            <p className="text-gray-800 text-md" >Total Exchanges: </p>
+            <p className="text-teal-400 font-normal text-xl font-serif text-md">&nbsp; {millify(globalStats.totalExchanges)}</p>
           </span>
         <span className="flex items-center col-span-6">
             <p className="text-gray-800 text-md" >Total Market Cap: </p>
